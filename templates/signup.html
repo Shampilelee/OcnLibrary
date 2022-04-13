@@ -1,0 +1,34 @@
+{% extends 'root.html' %}
+
+{% block content %}
+
+<br><br><br>
+<center>
+    <form action="/accounts/signup/" method="post">
+
+        {% csrf_token %}
+    
+        <input type="text" placeholder="first name" name="first_name"><br>
+        <input type="text" placeholder="last name" name="last_name"><br>
+        <input type="text" placeholder="username" name="username"><br>
+        <input type="email" placeholder="email" name="email"><br>
+        <input type="password" placeholder="password" name="password"><br>
+        <input type="password" placeholder="comfirm password" name="comfirm_password"><br>
+        <br>
+        <input type="submit">
+        
+    </form>
+    <br>
+    <a href="/accounts/login/">Login Here</a>
+    <br><br>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+    </div>
+</center>
+<br><br><br>
+
+
+{% endblock %}

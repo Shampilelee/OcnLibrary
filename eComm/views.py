@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from eComm.models import Destination, Shop_Page
+
 
 # Create your views here.
 
@@ -11,21 +11,7 @@ def frontPage(request):
 
 # The home url function
 def index(request):
-
-    dest1 = Destination()
-    dest1.name = 'BOOKS'
-    dest1.price = 700
-
-    return render(request, 'index.html', {'dest1': dest1})
-
-
-# The Shop Page
-def shop(request):
-
-    shop = Shop_Page()
-    shop.title = 'Shop - Ocean Library'
-
-    return render(request, 'shop.html', {'shop': shop})
+    return render(request, 'index.html')
 
 
 # The Books Page

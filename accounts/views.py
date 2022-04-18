@@ -23,20 +23,17 @@ def signup(request):
         # Check If Both Passwords Match
         if password == comfirm_password:
 
-            # Check If Username Is Already In DataBase
+            # Check If Username And Email Is Already In DataBase
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username Taken')
-                print(' ')
-                print('|| Username Taken ||')
-                print(' ')
+                print('\n || Username Taken || \n')
                 return redirect('/accounts/signup/')
+
             elif User.objects.filter(email=email).exists():
                 messages.info(request, 'Email Taken')
-                print(' ')
-                print('|| Email Taken ||')
-                print(' ')
+                print('\n || Email Taken || \n')
                 return redirect('/accounts/signup/')
-            
+
             else:
                 user = User.objects.create_user(
                     first_name = first_name,
@@ -46,13 +43,11 @@ def signup(request):
                     email = email
                 )
                 user.save()
-                print(' ')
-                print('|| Password Matching ||')
-                print('||| Registration Successful, New User Created ||')
-                print(' ')
+                print(str('\n') + '|| Password Matching ||')
+                print('||| Registration Successful, New User Created || \n')
                 # To call the Home Page
                 return redirect('/accounts/login/')
-            
+
 
         else:
             messages.info(request, 'Password Not Matching')
@@ -64,6 +59,9 @@ def signup(request):
     else:
         print('Get Request Recieved')
         return render(request, 'signup.html') 
+
+
+
 
 
 
@@ -92,6 +90,7 @@ def login(request):
             return redirect('/accounts/login/')
     else:
         return render(request, 'login.html')
+
 
 
 def logout(request):

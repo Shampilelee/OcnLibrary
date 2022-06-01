@@ -58,7 +58,7 @@ def signup(request):
 
     else:
         print('Get Request Recieved')
-        return render(request, 'signup.html') 
+        return render(request, 'New_SgnUp.html') 
 
 
 
@@ -76,6 +76,7 @@ def login(request):
             password = password
         )
 
+        
         if user is not None:
             auth.login(request, user)
             print(' ')
@@ -89,7 +90,7 @@ def login(request):
             print(' ')
             return redirect('/accounts/login/')
     else:
-        return render(request, 'login.html')
+        return render(request, 'New_SgnIn.html')
 
 
 

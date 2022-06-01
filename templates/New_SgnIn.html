@@ -1,0 +1,277 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Library - Login</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: #34495e;
+        }
+
+        .box{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #191919;
+            text-align: center;
+        }
+
+        .box h1{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .box h3{
+            color: red;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .box h3:hover{
+            color: rosybrown;
+        }
+
+        .signup_link{
+            margin: 30px 0;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .signup_link a{
+            color: #2691d9;
+            text-decoration: none;
+        }
+
+        .signup_link a:hover{
+            text-decoration: underline;
+        }
+
+        .signup_link a:focus{
+            color: #F7F302;
+        }
+
+        .box input[type = "text"],
+        .box input[type = "password"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+
+
+        .box input[type = "text"]:hover,
+        .box input[type = "password"]:hover{
+            border-color: #2ecc71;
+            transition: 0.5s;
+        }
+
+        .box input[type = "text"]:focus,
+        .box input[type = "password"]:focus{
+            width: 280px;
+            border-color: #95CC2E;
+        }
+
+
+        .box input[type = "submit"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #FFFFFF;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .box input[type = "submit"]:hover{
+            background: white;
+            color: black;
+            box-shadow: 0 0 5px #FFFFFF,
+                        0 0 25px #FFFFFF;
+        }
+
+        .box input[type = "submit"]:focus{
+            background: #561AE2;
+            color: rgb(255, 255, 255);
+            border: 2px solid #561AE2;
+            box-shadow: 0 0 5px #561AE2,
+                        0 0 25px #561AE2;
+        }
+
+        .home_page a{
+            position: relative;
+            display: inline-block;
+            padding: 10px 10px;
+            color: #03e9f4;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 0.5s;
+            letter-spacing: 4px;    
+        }
+
+        .home_page a:hover{
+            background: #F1158E;
+            color: #FFFFFF;
+            box-shadow: 0 0 5px #F1158E,
+                        0 0 25px #F1158E,
+                        0 0 50px #F1158E;
+                     /* 0 0 200px #03e9f4; */
+        }
+
+        .home_page a:focus{
+            background: #45D438;
+            color: #FFFFFF;
+            box-shadow: 0 0 5px #45D438,
+                        0 0 25px #45D438,
+                        0 0 50px #45D438;
+                     /* 0 0 200px #03e9f4; */
+        }
+
+        .home_page a span{
+            position: absolute;
+            display: block;
+        }
+
+        /* LIGHT MOVING FROM LEFT TO RIGHT */
+        .home_page a span:nth-child(1){
+            top: 0;
+            left: -100;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #F1158E);
+            animation: animate1 1s linear infinite;
+        }
+
+        @keyframes animate1{
+            0%{
+                left: -100%;
+            }
+            50%, 100%{
+                left: 100%;
+            }
+        }
+
+
+        /* LIGHT MOVING FROM TOP TO DOWN */
+        .home_page a span:nth-child(2){
+            top: -100;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: animate2 1s linear infinite;
+            animation-delay: 0.25s;
+        }
+
+        @keyframes animate2{
+            0%{
+                top: -100%;
+            }
+            50%, 100%{
+                top: 100%;
+            }
+        }
+
+
+        /* LIGHT MOVING FROM RIGHT TO LEFT */
+        .home_page a span:nth-child(3){
+            bottom: 0;
+            right: -100;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #F1158E);
+            animation: animate3 1s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes animate3{
+            0%{
+                right: -100%;
+            }
+            50%, 100%{
+                right: 100%;
+            }
+        }
+
+
+        /* LIGHT MOVING FROM DOWN TO TOP */
+        .home_page a span:nth-child(4){
+            bottom: -100;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: animate4 1s linear infinite;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes animate4{
+            0%{
+                bottom: -100%;
+            }
+            50%, 100%{
+                bottom: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <form class="box" action="/accounts/login/" method="post">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" name="" value="Login">
+
+        <div class="signup_link">
+            Not a member? <a href="/accounts/signup/">Signup</a>
+        </div>
+
+        <!-- Show Error Message -->
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+        
+        
+        <div class="home_page">
+            <a href="/">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Home Page
+            </a>
+        </div>
+
+    </form>
+
+</body>
+</html>

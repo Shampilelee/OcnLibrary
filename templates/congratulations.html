@@ -1,21 +1,123 @@
-{% extends 'root.html' %}
-
-{% block content %}
-
-<center>
-    <h1>{{userEmail}}, </h1> 
-    <h3>your order has being accepted, we will verify your payment and deliver your order.</h3>
-    <h4>Kindly email us after a week, if you hav'nt recieved your order.</h4>
-    <h5>Nice Trading With You.</h5>
-
-<p>Order From : {{userEmail}}</p>
-
-<br>
-
-<a href="/eComm/">Go To Main Page</a><br><br>
-<a href="/">Logout</a><br><br><br>
+{% load static %}
 
 
-</center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Library - Shop</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg, #B3BD2F,#2980b9);
+            height: 100vh;
+            overflow: hidden;
+        }
 
-{% endblock %}
+        .center{
+            align-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .center h1{
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid silver;
+        }
+
+        .center form{
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        form .txt_field{
+            position: relative;
+            border-bottom: 2px solid #adadad;
+            margin: 30px 0;
+        }
+        
+
+        .details{
+            text-align: center;
+            margin: -5px 0 20px 5px;
+            color: #a6a6a6;
+            cursor: pointer;
+        }
+
+
+        .cancel_link{
+            margin: 30px 0;
+            text-align: center;
+        }
+
+
+        .cancel_link a{
+            color: #2691d9;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+
+        .cancel_link a:hover{
+            color: #D3AC00;
+            transition:  0.5s;
+        }
+
+        .cancel_link a:focus{
+            transition: 0.5s;
+            background: #5F03F4;
+            color: #FFFFFF;
+            box-shadow: 0 0 5px #5F03F4,
+                        0 0 25px #5F03F4,
+                        0 0 50px #5F03F4,
+                        0 0 200px #5F03F4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>
+            Congratulations 
+            {{ userEmail }}
+        </h1>
+        
+        <form>
+            {% csrf_token %}
+
+            <div class="details">
+                <h5>
+                    Your order has being accepted, we will verify your payment and deliver your order.</h3>
+                </h5>    
+                Kindly contact us after a week if you don't receive your order.
+                email us with your purchase, and payment details
+                email: <b>oceanlibservice@gmail.com</b>
+            </div>
+    
+
+            <div class="cancel_link">
+                <a href="/eComm/">                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Thank You
+                </a>
+            </div>
+    
+        
+            <br>
+        </form>
+    </div>
+</body>
+</html>
